@@ -73,24 +73,21 @@ function CalendarPicker() {
 
 
 
-        const handleDayClick = (day) => {
-            console.log(day)
-            setSelectedDate(day)
-            setSelectedDay(day.toLocaleDateString('en-GB', days))
-            console.log(selectedDay)
+        const handleDayClick =  (day) => {
+            setSelectedDate(prevstate => (day))
+            setSelectedDay(prevstate => (day.toLocaleDateString('en-GB', days)))
             if (selectedDay === 'Wednesday' || 'Thursday' || 'Friday'){
-                setShippingType('Standard')
-                setPrice('- $9.99')
+                setShippingType(prevstate => ('Standard'))
+                setPrice(('- $9.99'))
             }
             if (selectedDay === 'Tuesday') {
-                setShippingType('Overnight')
-                setPrice('- $79.99')
+                setShippingType(prevstate => ('Overnight'))
+                setPrice(prevstate => ('- $79.99'))
             }
             if (selectedDay === 'Saturday') {
-                setShippingType('Saturday')
-                setPrice('- $0.00 Upgrade Free*')
+                setShippingType(prevstate => ('Saturday'))
+                setPrice(prevstate => ('- $0.00 Upgrade Free*'))
             }
-            console.log(shippingType, price)
         } 
 
     return (
